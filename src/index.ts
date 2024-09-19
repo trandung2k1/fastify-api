@@ -1,10 +1,14 @@
+import 'dotenv/config'
+import { sum } from '@/utils/sum'
 import Fastify, { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify'
-const p = 4000
+const p: number = +process.env.PORT || 4000
 const server: FastifyInstance = Fastify({ logger: true })
 server.get('/', async (request: FastifyRequest, reply: FastifyReply) => {
   return reply.status(200).send({ message: 'Welcome to the server👋👋' })
 })
-const start = async (): Promise<void> => {
+const startServer = async (): Promise<void> => {
+  const rs = sum(1, 2)
+  console.log(rs)
   try {
     await server.listen({ port: p })
     const address = server.server.address()
@@ -15,4 +19,5 @@ const start = async (): Promise<void> => {
     process.exit(1)
   }
 }
-start()
+
+startServer()
