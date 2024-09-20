@@ -29,7 +29,7 @@
     "allowSyntheticDefaultImports": true,
     "typeRoots": ["./src/types", "./node_modules/@types"]
   },
-  "files": ["src/type.d.ts"], // Các file dùng để defined global type cho dự án
+  "files": ["src/types/index.d.ts"], // Các file dùng để defined global type cho dự án
   "lib": ["es2015"],
   "exclude": ["node_modules", "dist", "build"],
   "include": ["src/**/*.ts"] // Đường dẫn include cho các file cần build
